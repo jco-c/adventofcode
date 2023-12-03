@@ -58,7 +58,6 @@ for row, line in enumerate(lines):
 calculated_gears = []
 sum_of_ratios = 0
 gears = [number for number in numbers if number.star]
-print(gears)
 for number in gears:
     for number2 in gears:
         if (
@@ -67,13 +66,9 @@ for number in gears:
             and number is not number2
         ):
             if (number, number2) not in calculated_gears:
-                print(int(number.num_str) * int(number2.num_str))
                 sum_of_ratios += int(number.num_str) * int(number2.num_str)
             calculated_gears.append((number, number2))
             calculated_gears.append((number2, number))
-
-            # gears.remove(number)
-            # gears.remove(number2)
 
 
 print(sum_of_ratios)
