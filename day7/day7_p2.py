@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 from collections import Counter
+from dataclasses import dataclass
 from enum import Enum
 from functools import total_ordering
 from pprint import PrettyPrinter
@@ -72,7 +72,7 @@ class Hand:
         self.count_of_cards = Counter(self.hand)
         self.jokers = self.count_of_cards["J"]
 
-    def _get_type(self):  # remove J from count_of_cards!!!
+    def _get_type(self):
         self.count_of_cards["J"] = 0
         cards = self.count_of_cards.most_common()
         first_cards = cards[0][1]
