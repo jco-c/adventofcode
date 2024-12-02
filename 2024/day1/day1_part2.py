@@ -1,0 +1,35 @@
+with open("2024/day1/input.txt") as f:
+    lines = f.readlines()
+
+
+def get_nums(line: str) -> tuple[int, int]:
+    num1, num2 = line.split()
+    return int(num1), int(num2)
+
+
+def create_new_lists(lines: list[str]) -> tuple[list, list]:
+    list_1 = list()
+    list_2 = list()
+
+    for line in lines:
+        num1, num2 = get_nums(line)
+        list_1.append(num1)
+        list_2.append(num2)
+
+    list_1.sort()
+    list_2.sort()
+
+    return list_1, list_2
+
+
+def calculate_similarity(list_1: list[int], list_2: list[int]) -> int:
+    total_similarity = 0
+    for num1 in list_1:
+        occurences = list_2.count(num1)
+        total_similarity += num1 * occurences
+
+    return total_similarity
+
+
+list1, list2 = create_new_lists(lines)
+print(calculate_similarity(list1, list2))
